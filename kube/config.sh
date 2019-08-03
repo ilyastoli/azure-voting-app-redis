@@ -1,4 +1,4 @@
-input="params"
+input="$WORKSPACE/kube/params"
 pwd;
 while IFS= read -r line
 do
