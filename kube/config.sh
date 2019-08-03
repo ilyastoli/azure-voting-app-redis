@@ -9,7 +9,8 @@ do
   echo "key=${key}, val=${value}"
 #   sed 's/${key}/${value}/g' ${WORKDIR}/azure-vote-all-in-one-redis.yaml
 #   echo "sed 's/${key}/${value}/g' ${WORKDIR}/azure-vote-all-in-one-redis.yaml"
-  sed -i 's/${key}/${value}/g' ${WORKDIR}/azure-vote-all-in-one-redis.yaml
+#   sed -i 's/${key}/${value}/g' ${WORKDIR}/azure-vote-all-in-one-redis.yaml
+  sed -i 's/"${key}"/"${value}"/g' ${WORKDIR}/azure-vote-all-in-one-redis.yaml
   cat ${WORKDIR}/azure-vote-all-in-one-redis.yaml
 done < "$INPUT"
 
