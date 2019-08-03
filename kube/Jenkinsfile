@@ -2,12 +2,17 @@ node {
     git branch: 'master',
     url: 'https://github.com/difki/azure-voting-app-redis.git'
 
-  stage('List pods') {
+  stage('kubectl apply') {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
-      sh 'ls -rlth kube/'
-      sh 'cat kube/azure-vote-all-in-one-redis.yaml'
       sh 'kubectl apply -f kube/'
+      sh 'kubectl rollout status deployment.apps/nginx-deployment'
+      sh 'kubectl get pods'
+    }
+  }
+  stage('List pods ') {
+    withKubeConfig([credentialsId: 'forcli',
+                    ]) {
       sh 'kubectl rollout status deployment.apps/nginx-deployment'
       sh 'kubectl get pods'
     }
