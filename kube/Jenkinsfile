@@ -5,7 +5,7 @@ node {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
       sh 'kubectl apply -f kube/'
-      sh 'kubectl rollout status'
+      sh 'kubectl rollout status deployment.apps/nginx-deployment'
     }
   }
 }
