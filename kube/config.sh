@@ -1,4 +1,5 @@
 input="params"
+pwd;
 while IFS= read -r line
 do
   key=$(awk -F":" '{print $1}' params)
