@@ -5,7 +5,7 @@ node {
   stage('Change versions') {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
-      sh './config.sh'
+      sh 'pwd;kube/config.sh'
     }
   }
   stage('kubectl apply') {
