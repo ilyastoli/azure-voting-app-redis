@@ -5,6 +5,7 @@ node {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
       sh 'kubectl apply -f kube/'
+      sh 'kubectl rollout status'
     }
   }
 }
