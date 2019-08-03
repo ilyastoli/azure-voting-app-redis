@@ -5,5 +5,6 @@ do
   #key=$(echo $line | awk -F":" '{print $1}')
   #alue=$(echo $line| awk -F":" '{print $2}')
   #ehco "key=${key}, val=${value}"
-  echo "$line"
+  echo "$line" | awk -F":" '{print $1}'
+  echo "$line" | awk -F":" '{print $2}'
 done < "$input"
