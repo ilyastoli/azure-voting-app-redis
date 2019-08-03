@@ -5,7 +5,7 @@ node {
   stage('Change versions') {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
-      sh 'sed -i 's/old-text/new-text/g' input.txt'
+      sh './config.sh'
     }
   }
   stage('kubectl apply') {
