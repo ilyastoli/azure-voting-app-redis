@@ -2,7 +2,8 @@ input="$WORKSPACE/kube/params"
 pwd;
 while IFS= read -r line
 do
-  key=$(echo $line | awk -F":" '{print $1}')
-  value=$(echo $line| awk -F":" '{print $2}')
-  ehco "key=${key}, val=${value}"
+  #key=$(echo $line | awk -F":" '{print $1}')
+  #alue=$(echo $line| awk -F":" '{print $2}')
+  #ehco "key=${key}, val=${value}"
+  echo "$line"
 done < "$input"
