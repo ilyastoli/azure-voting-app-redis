@@ -4,6 +4,7 @@ node {
   stage('List pods') {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
+      sh 'ls -rlth kube/'
       sh 'kubectl apply -f kube/'
       sh 'kubectl rollout status deployment.apps/nginx-deployment'
     }
