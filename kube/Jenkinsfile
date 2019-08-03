@@ -1,0 +1,14 @@
+node {
+    
+    stage('Checkout external proj') {
+            git branch: 'master',
+                url: 'https://github.com/difki/azure-voting-app-redis.git'
+            sh "ls -lat"
+    }
+  stage('List pods') {
+    withKubeConfig([credentialsId: 'forcli',
+                    ]) {
+      sh 'kubectl get pods'
+    }
+  }
+}
