@@ -1,7 +1,13 @@
 node {
     git branch: 'master',
     url: 'https://github.com/difki/azure-voting-app-redis.git'
-
+    
+  stage('Change versions') {
+    withKubeConfig([credentialsId: 'forcli',
+                    ]) {
+      sh 'sed -i 's/old-text/new-text/g' input.txt'
+    }
+  }
   stage('kubectl apply') {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
