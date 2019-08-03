@@ -5,8 +5,10 @@ node {
     withKubeConfig([credentialsId: 'forcli',
                     ]) {
       sh 'ls -rlth kube/'
+      sh 'cat kube/azure-vote-all-in-one-redis.yaml'
       sh 'kubectl apply -f kube/'
       sh 'kubectl rollout status deployment.apps/nginx-deployment'
+      sh 'kubectl get pods'
     }
   }
 }
