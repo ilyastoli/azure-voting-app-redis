@@ -9,3 +9,5 @@ do
   echo "key=${key}, val=${value}"
   sed -i 's/${key}/${value}/g' ${WORKDIR}/azure-vote-all-in-one-redis.yaml
 done < "$INPUT"
+
+cat ${WORKDIR}/azure-vote-all-in-one-redis.yaml
