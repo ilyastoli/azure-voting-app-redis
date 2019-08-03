@@ -1,6 +1,6 @@
 node {
     git branch: 'master',
-    url: 'https://github.com/difki/azure-voting-app-redis.git'
+    url: 'https://github.com/ilyastoli/azure-voting-app-redis.git'
     
   stage('Change versions') {
     withKubeConfig([credentialsId: 'forcli',
