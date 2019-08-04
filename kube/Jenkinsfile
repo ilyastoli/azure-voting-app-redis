@@ -4,19 +4,19 @@ node {
     credentialsId: 'forcli'
     
   stage('Change versions') {
-    withKubeConfig([credentialsId: 'forcli', namespace: 'prod'
+    withKubeConfig([credentialsId: 'forcli', namespace: 'prod', context: 'new-kube'
                     ]) {
       sh './kube/config.sh'
     }
   }
   stage('kubectl apply') {
-    withKubeConfig([credentialsId: 'forcli', namespace: 'prod'
+    withKubeConfig([credentialsId: 'forcli', namespace: 'prod', context: 'new-kube'
                     ]) {
       sh 'kubectl apply -f kube/'
     }
   }
   stage('List pods ') {
-    withKubeConfig([credentialsId: 'forcli',namespace: 'prod'
+    withKubeConfig([credentialsId: 'forcli',namespace: 'prod', context: 'new-kube'
                     ]) {
       sh 'kubectl rollout status deployment.apps/nginx-deployment'
       sh 'kubectl get pods'
