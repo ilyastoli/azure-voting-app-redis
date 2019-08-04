@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: nginx2
-        image: nginx:<NGINX2_TAG>
+        image: nginx:<NGINX2_TAG2>
         ports:
         - containerPort: 80
 ---
