@@ -7,10 +7,9 @@ do
   key=$(echo "$line" | awk -F":" '{print $1}')
   value=$(echo "$line" | awk -F":" '{print $2}')
   echo "key=${key}, val=${value}"
-  for manifest in $(ls ${WORKDIR}/); do
-    echo $manifest
+  for manifest in $(ls ${WORKDIR}/ ls *.y*ml); do
+      sed -i "s/${key}/${value}/g" ${WORKDIR}/${manifest}
   done
-  sed -i "s/${key}/${value}/g" ${WORKDIR}/azure-vote-all-in-one-redis.yaml
   
 done < "$INPUT"
 
